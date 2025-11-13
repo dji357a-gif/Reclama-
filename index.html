@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Програмування та розробка ПЗ | Стань професіоналом!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a14 0%, #121225 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(80, 30, 120, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(60, 0, 100, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(100, 70, 150, 0.08) 0%, transparent 50%);
+            z-index: -2;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(80, 30, 120, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(80, 30, 120, 0.07) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(10, 10, 20, 0.92);
+            color: #ffffff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #6a1b9a;
+            box-shadow: 0 0 15px rgba(106, 27, 154, 0.4);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px #6a1b9a, 0 0 20px #6a1b9a;
+            background: linear-gradient(45deg, #6a1b9a, #7b1fa2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #6a1b9a;
+            text-shadow: 0 0 8px #6a1b9a;
+            background: rgba(106, 27, 154, 0.1);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.85), rgba(18, 18, 37, 0.85));
+            color: #ffffff;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(106, 27, 154, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px #6a1b9a;
+            background: linear-gradient(45deg, #ffffff, #6a1b9a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: #e6e6e6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #6a1b9a, #7b1fa2);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(106, 27, 154, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(106, 27, 154, 0.6);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        section {
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #6a1b9a;
+            background: linear-gradient(45deg, #ffffff, #6a1b9a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #cccccc;
+            font-size: 1.2rem;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: rgba(20, 20, 35, 0.6);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s;
+            border: 1px solid rgba(106, 27, 154, 0.25);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.08), transparent);
+            z-index: -1;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 27, 154, 0.25);
+            border-color: rgba(106, 27, 154, 0.5);
+        }
+        
+        .card-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px #6a1b9a;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: #6a1b9a;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #6a1b9a;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(20, 20, 35, 0.6);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(106, 27, 154, 0.25);
+            backdrop-filter: blur(5px);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(106, 27, 154, 0.15);
+        }
+        
+        th {
+            background: linear-gradient(45deg, rgba(106, 27, 154, 0.6), rgba(123, 31, 162, 0.6));
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(30, 30, 45, 0.4);
+        }
+        
+        footer {
+            background-color: rgba(10, 10, 20, 0.92);
+            color: #ffffff;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #6a1b9a;
+            box-shadow: 0 0 15px rgba(106, 27, 154, 0.25);
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            color: #6a1b9a;
+            text-shadow: 0 0 8px #6a1b9a;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            color: #aaaaaa;
+        }
+        
+        .page {
+            display: none;
+            padding: 2rem 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .topic-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .topic-title {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 5px #6a1b9a;
+        }
+        
+        .topic-icon {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .topic-content {
+            background: rgba(20, 20, 35, 0.6);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(106, 27, 154, 0.25);
+            backdrop-filter: blur(5px);
+        }
+        
+        .code-block {
+            background: rgba(10, 10, 20, 0.8);
+            color: #6a1b9a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border: 1px solid rgba(106, 27, 154, 0.4);
+            box-shadow: 0 0 10px rgba(106, 27, 154, 0.15);
+            text-shadow: 0 0 5px rgba(106, 27, 154, 0.4);
+            font-size: 1rem;
+        }
+        
+        .example-list {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        .example-list li {
+            margin-bottom: 0.8rem;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-item {
+            background: rgba(30, 30, 45, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #6a1b9a;
+            color: #cccccc;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+        
+        .skill-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+        
+        .external-link {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .external-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px #6a1b9a;
+        }
+        
+        .external-link::after {
+            content: ' ↗';
+            font-size: 0.9em;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(106, 27, 154, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(106, 27, 154, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(106, 27, 154, 0.4); }
+        }
+        
+        .card, .btn, .topic-content, table {
+            animation: glow 3s infinite;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #6a1b9a, #7b1fa2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.08), rgba(123, 31, 162, 0.08));
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+            border: 1px solid rgba(106, 27, 154, 0.25);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #6a1b9a;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #e6e6e6;
+        }
+        
+        .video-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .video-fallback-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #6a1b9a;
+        }
+        
+        .video-fallback a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        
+        .developer-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .developer-name {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #6a1b9a;
+        }
+        
+        .developer-title {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-card {
+            background: rgba(20, 20, 35, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(106, 27, 154, 0.25);
+        }
+        
+        .contact-card h3 {
+            color: #6a1b9a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-card p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+        
+        .resources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: rgba(20, 20, 35, 0.6);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(106, 27, 154, 0.25);
+        }
+        
+        .resource-card h3 {
+            color: #6a1b9a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .resource-card p {
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .topic-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Програмування & ПЗ</div>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')" class="active">Головна</a></li>
+                    <li><a href="#" onclick="showPage('basics')">Основи</a></li>
+                    <li><a href="#" onclick="showPage('oop')">ООП</a></li>
+                    <li><a href="#" onclick="showPage('web')">Веб-розробка</a></li>
+                    <li><a href="#" onclick="showPage('mobile')">Мобільна розробка</a></li>
+                    <li><a href="#" onclick="showPage('engineering')">Інженерія ПЗ</a></li>
+                    <li><a href="#" onclick="showPage('languages')">Мови програмування</a></li>
+                    <li><a href="#" onclick="showPage('developer')">Розробник</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h1>Стань професійним розробником ПЗ!</h1>
+                <p>Навчайся у найкращих, отримуй практичні навички та будуй кар'єру в IT. Наші курси охоплюють всі аспекти сучасного програмування - від основ до просунутих технологій.</p>
+                <a href="#" class="btn" onclick="showPage('basics')">Почати навчання</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <section>
+                <div class="section-title">
+                    <h2>Наші курси програмування</h2>
+                    <p>Опануйте найпопулярніші технології та стайте затребуваним спеціалістом на ринку праці</p>
+                </div>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">🚀</div>
+                            <h3>Основи програмування</h3>
+                            <p>Почніть з нуля та опануйте фундаментальні принципи алгоритмізації та програмування. Розвиньте алгоритмічне мислення та навчіться створювати перші програми.</p>
+                            <a href="#" onclick="showPage('basics')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">💎</div>
+                            <h3>Об'єктно-орієнтоване програмування</h3>
+                            <p>Опануйте сучасний підхід до написання програм з використанням класів та об'єктів. Навчіться створювати масштабовані та легко підтримувані системи.</p>
+                            <a href="#" onclick="showPage('oop')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">🌐</div>
+                            <h3>Розробка вебзастосунків</h3>
+                            <p>Створюйте сучасні вебсайти та вебдодатки з використанням актуальних технологій. Опануйте фронтенд та бекенд розробку для повного циклу створення продуктів.</p>
+                            <a href="#" onclick="showPage('web')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">📱</div>
+                            <h3>Мобільна розробка</h3>
+                            <p>Створюйте застосунки для iOS та Android з використанням нативних технологій та крос-платформових фреймворків. Опануйте весь цикл розробки мобільних додатків.</p>
+                            <a href="#" onclick="showPage('mobile')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">⚙️</div>
+                            <h3>Інженерія ПЗ</h3>
+                            <p>Вивчіть повний життєвий цикл ПЗ — від ідеї до готового продукту. Опануйте методики тестування, документування та підтримки програмного забезпечення.</p>
+                            <a href="#" onclick="showPage('engineering')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">🔤</div>
+                            <h3>Мови програмування</h3>
+                            <p>Опануйте різні мови програмування від початкового рівня до просунутого. Дізнайтеся про переваги та недоліки кожної мови та їх застосування в різних сферах.</p>
+                            <a href="#" onclick="showPage('languages')" class="btn">Детальніше →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="cta-section">
+                <h2>Готові почати кар'єру в IT?</h2>
+                <p>Приєднуйтесь до тисяч студентів, які вже отримали роботу мрії після наших курсів. Почніть свій шлях до успішної кар'єри в програмуванні вже сьогодні!</p>
+                <a href="#" class="btn" onclick="showPage('basics')">Розпочати навчання</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="basics" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Основи програмування</h2>
+                <p>Перші кроки у світі програмування: алгоритми, структури даних та базові концепції</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎯</span> Мета курсу</h3>
+                <div class="topic-content">
+                    <p>Основи програмування — це базова дисципліна, з якої починається навчання кожного програміста. Вона формує логічне, алгоритмічне мислення, навчає будувати програми, що розв'язують конкретні задачі за допомогою комп'ютера.</p>
+                    <ul class="example-list">
+                        <li>Навчити студента думати як програміст — розкладати задачу на кроки (алгоритми).</li>
+                        <li>Ознайомити з поняттями змінних, операторів, структур даних і функцій.</li>
+                        <li>Показати, як перетворити алгоритм у програму, яку комп'ютер може виконати.</li>
+                        <li>Сформувати навички відлагодження та тестування простих програм.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔗</span> Додаткові ресурси</h3>
+                <div class="topic-content">
+                    <p>Дізнайтеся більше про програмування з цих корисних джерел:</p>
+                    <ul class="example-list">
+                        <li><a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" class="external-link" target="_blank">Програмування на Вікіпедії</a> - детальна інформація про історію та концепції програмування</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎬</span> Відео: Вступ до програмування</h3>
+                <div class="topic-content">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/zpKZq3CHSuM" 
+                            title="Як ПРОСТІ ПРИНЦИПИ роблять тебе ПРОФІ в програмуванні: SOLID, DRY, KISS, YAGNI"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Це відео допоможе зрозуміти основні принципи програмування, які роблять вас професіоналом у цій галузі.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Що таке програма</h3>
+                <div class="topic-content">
+                    <p>Програма — це послідовність інструкцій, які комп'ютер виконує для досягнення певного результату. Усе програмування ґрунтується на логічних діях: обчислення, порівняння, введення, виведення, вибір дій, повторення.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Алгоритмізація</h3>
+                <div class="topic-content">
+                    <p>Перед тим як писати код, потрібно скласти алгоритм — чіткий опис послідовності кроків для розв'язання задачі.</p>
+                    
+                    <h4>Основні властивості алгоритму:</h4>
+                    <ul class="example-list">
+                        <li><strong>Скінченність</strong> — має завершуватись.</li>
+                        <li><strong>Визначеність</strong> — кожен крок однозначний.</li>
+                        <li><strong>Результативність</strong> — приводить до розв'язку задачі.</li>
+                    </ul>
+                    
+                    <h4>Приклади алгоритмів:</h4>
+                    <ul class="example-list">
+                        <li>обчислення суми двох чисел;</li>
+                        <li>пошук найбільшого елемента в масиві;</li>
+                        <li>сортування чисел.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Базові поняття програмування</h3>
+                <div class="topic-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Поняття</th>
+                                <th>Пояснення</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Змінна</td>
+                                <td>Комірка пам'яті, де зберігається значення (наприклад: int a = 5;)</td>
+                            </tr>
+                            <tr>
+                                <td>Тип даних</td>
+                                <td>Визначає, які значення може мати змінна (цілі, дійсні, символи тощо)</td>
+                            </tr>
+                            <tr>
+                                <td>Оператор</td>
+                                <td>Команда, яку виконує комп'ютер (наприклад, a = b + c;)</td>
+                            </tr>
+                            <tr>
+                                <td>Вираз</td>
+                                <td>Формула, що поєднує змінні та оператори</td>
+                            </tr>
+                            <tr>
+                                <td>Коментарі</td>
+                                <td>Текст у коді, який пояснює роботу програми, але не виконується</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основні конструкції програмування</h3>
+                <div class="topic-content">
+                    <p>Всі програми складаються з трьох типів конструкцій:</p>
+                    
+                    <h4>1. Послідовність</h4>
+                    <p>Інструкції виконуються одна за одною.</p>
+                    <div class="code-block">
+                        a = 5;<br>
+                        b = 3;<br>
+                        sum = a + b;
+                    </div>
+                    
+                    <h4>2. Розгалуження (умови)</h4>
+                    <p>Виконуються різні дії залежно від умови.</p>
+                    <div class="code-block">
+                        if (a > b)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;max = a;<br>
+                        else<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;max = b;
+                    </div>
+                    
+                    <h4>3. Цикли (повторення)</h4>
+                    <p>Виконують блок команд кілька разів.</p>
+                    <div class="code-block">
+                        for (int i = 0; i < 10; i++)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;printf("%d ", i);
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Функції та модульність</h3>
+                <div class="topic-content">
+                    <p>Функція — окрема частина програми, яка виконує певну дію. Використовується для повторного використання коду, кращої структури програми.</p>
+                    <div class="code-block">
+                        int add(int x, int y) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;return x + y;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Масиви та структури даних</h3>
+                <div class="topic-content">
+                    <p>Масив — набір змінних одного типу, розміщених підряд у пам'яті.</p>
+                    <div class="code-block">
+                        int numbers[5] = {1, 2, 3, 4, 5};
+                    </div>
+                    <p>Дає змогу працювати з великими обсягами даних (списки, таблиці тощо). Далі студенти вивчають складніші структури: списки, черги, стеки, дерева, графи.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Введення та виведення даних</h3>
+                <div class="topic-content">
+                    <p>Програми повинні взаємодіяти з користувачем:</p>
+                    <ul class="example-list">
+                        <li>Введення: scanf() у C, input() у Python;</li>
+                        <li>Виведення: printf() у C, print() у Python.</li>
+                    </ul>
+                    <div class="code-block">
+                        int a, b;<br>
+                        scanf("%d%d", &a, &b);<br>
+                        printf("Sum = %d", a + b);
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Помилки та налагодження</h3>
+                <div class="topic-content">
+                    <p>Типи помилок:</p>
+                    <ul class="example-list">
+                        <li><strong>Синтаксичні</strong> — порушення правил мови (пропущена дужка, крапка з комою).</li>
+                        <li><strong>Логічні</strong> — програма працює, але дає неправильний результат.</li>
+                        <li><strong>Робочі (runtime)</strong> — виникають під час виконання (ділення на нуль, вихід за межі масиву).</li>
+                    </ul>
+                    <p>Студенти вчаться використовувати налагоджувачі (debuggers) для пошуку й виправлення помилок.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Інструменти, що використовують</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>Середовища програмування (IDE): Code::Blocks, Dev-C++, Visual Studio, VS Code.</li>
+                        <li>Компілятори: GCC, Clang.</li>
+                        <li>Консолі введення/виведення, термінали.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Приклади типових навчальних завдань</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>Знайти суму та середнє арифметичне трьох чисел.</li>
+                        <li>Визначити, чи є число парним.</li>
+                        <li>Знайти найбільший спільний дільник (НСД).</li>
+                        <li>Вивести таблицю множення.</li>
+                        <li>Порахувати кількість позитивних чисел у масиві.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🧩</span> Після вивчення курсу студент уміє:</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">✅ створювати прості алгоритми</div>
+                        <div class="skill-item">✅ розуміти логіку програмування</div>
+                        <div class="skill-item">✅ писати, тестувати та налагоджувати код</div>
+                        <div class="skill-item">✅ користуватись базовими засобами програмування</div>
+                        <div class="skill-item">✅ переходити до складніших тем — ООП, бази даних, веб-розробка, штучний інтелект</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові опанувати основи програмування?</h2>
+                <p>Приєднуйтесь до нашого курсу та отримайте міцну базу для подальшого розвитку в IT. Почніть свій шлях до кар'єри програміста вже сьогодні!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="oop" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Об'єктно-орієнтоване програмування (ООП)</h2>
+                <p>Сучасний підхід до написання програм з використанням класів та об'єктів</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎯</span> Що таке об'єктно-орієнтоване програмування</h3>
+                <div class="topic-content">
+                    <p>Об'єктно-орієнтоване програмування — це підхід до створення програм, у якому все будується навколо об'єктів.</p>
+                    <p>Об'єкт — це щось, що має властивості (характеристики) і поведінку (дії).</p>
+                    
+                    <p><strong>Наприклад, якщо уявити об'єкт "Автомобіль":</strong></p>
+                    <ul class="example-list">
+                        <li>його властивості — колір, марка, швидкість;</li>
+                        <li>його поведінка — їхати, зупинятися, сигналити.</li>
+                    </ul>
+                    
+                    <p>У програмуванні це означає, що ми описуємо не просто набір команд, а створюємо "віртуальні об'єкти", які взаємодіють між собою так само, як речі у реальному світі.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основна ідея ООП</h3>
+                <div class="topic-content">
+                    <p>Головна мета ООП — зробити код більш зрозумілим, зручним у супроводі та таким, який можна повторно використовувати.</p>
+                    <p>Якщо в класичному програмуванні (процедурному) код — це послідовність дій, то в ООП ми створюємо об'єкти, які знають, що вони можуть робити.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основні принципи ООП</h3>
+                <div class="topic-content">
+                    <p>Об'єктно-орієнтоване програмування базується на чотирьох головних принципах:</p>
+                    
+                    <h4>1. Інкапсуляція</h4>
+                    <p>Це принцип "приховування" внутрішніх деталей роботи об'єкта. Користувач бачить лише те, що потрібно, а все інше "сховане всередині".</p>
+                    <p><strong>👉 Наприклад:</strong> коли ти користуєшся телефоном, ти натискаєш кнопку "Камера", але не думаєш, як саме телефон обробляє зображення — це все робить програма "під капотом".</p>
+                    <p>У коді це виглядає як клас, який має поля (дані) і методи (дії), але частина з них "приватна" — її не видно ззовні.</p>
+                    
+                    <h4>2. Наслідування</h4>
+                    <p>Цей принцип дозволяє створювати нові класи на основі вже існуючих. Тобто "дитячий" клас успадковує властивості й поведінку "батьківського".</p>
+                    <p><strong>👉 Наприклад:</strong> Є клас "Тварина", який має метод "їсти". Від нього можна створити класи "Кіт" і "Пес", які теж можуть "їсти", але ще мають свої особливості — "муркати" чи "гавкати".</p>
+                    <p>Це дає можливість не дублювати код, а розширювати вже готові рішення.</p>
+                    
+                    <h4>3. Поліморфізм</h4>
+                    <p>Складне слово, але проста ідея: різні об'єкти можуть виконувати одну і ту ж дію по-різному.</p>
+                    <p><strong>👉 Наприклад:</strong> Команда "говорити" для кота означає "мяу", а для собаки — "гав". Тобто метод один ("говорити"), але реалізація — різна.</p>
+                    <p>Поліморфізм дозволяє писати код, який працює універсально, навіть якщо об'єкти відрізняються.</p>
+                    
+                    <h4>4. Абстракція</h4>
+                    <p>Абстракція означає виділення лише головного, без зайвих деталей. Програміст створює модель об'єкта, де залишає лише ті властивості, які справді потрібні для завдання.</p>
+                    <p><strong>👉 Наприклад,</strong> якщо ти створюєш програму для автосалону, тебе цікавлять параметри "модель", "ціна", "рік випуску", але не потрібно зберігати колір сидінь чи тип гуми.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Приклад із життя</h3>
+                <div class="topic-content">
+                    <p>Уяви, що ти створюєш гру, де є персонажі — воїни, чарівники й ельфи. Усі вони — "Об'єкти", які мають спільні риси: ім'я, рівень здоров'я, зброю. Але кожен з них має свої особливі методи — "атакувати мечем", "кидати заклинання" тощо. Це і є суть ООП: об'єкти різні, але працюють за спільними правилами.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Переваги ООП</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">Код стає зрозумілим і логічним, бо нагадує реальний світ</div>
+                        <div class="skill-item">Програми легше змінювати і доповнювати</div>
+                        <div class="skill-item">Можна повторно використовувати вже написаний код</div>
+                        <div class="skill-item">Простіше тестувати і знаходити помилки</div>
+                        <div class="skill-item">Код стає гнучким і масштабованим, що важливо для великих проєктів</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Де використовується ООП</h3>
+                <div class="topic-content">
+                    <p>ООП — це основа майже всього сучасного програмування. Його використовують у:</p>
+                    <ul class="example-list">
+                        <li>створенні ігор (Unity, Unreal Engine);</li>
+                        <li>розробці мобільних застосунків (Android, iOS);</li>
+                        <li>веброзробці (Java, C#, Python, PHP, JavaScript — усі підтримують ООП);</li>
+                        <li>розробці систем штучного інтелекту;</li>
+                        <li>корпоративних програмах і базах даних.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎬</span> Відео: ООП за 5 хвилин</h3>
+                <div class="topic-content">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/tNebe1k0qZE" 
+                            title="Об'єктно орієнтоване програмування за 5 хвилин | Просте пояснення для початківців | ООП"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Це відео допоможе швидко зрозуміти основні концепції об'єктно-орієнтованого програмування.</p>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові опанувати ООП?</h2>
+                <p>Приєднуйтесь до нашого курсу та навчіться створювати масштабовані та легко підтримувані програми. Опануйте одну з найважливіших парадигм сучасного програмування!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="web" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Розробка вебзастосунків</h2>
+                <p>Створення сучасних вебсайтів та вебдодатків з використанням актуальних технологій</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Що таке вебзастосунок</h3>
+                <div class="topic-content">
+                    <p>Вебзастосунок (web application) — це програмний продукт, який запускається через веб-браузер або веб-інтерфейс і працює на сервері, а не встановлюється локально. Тобто: користувач відкриває браузер, вводить адресу, і взаємодіє з інтерфейсом — все інше ("логіка", зберігання даних) працює на сервері чи в хмарі.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основні компоненти вебзастосунку</h3>
+                <div class="topic-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Компонент</th>
+                                <th>Опис</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Front-end (клієнтська частина)</td>
+                                <td>Те, що бачить користувач: HTML + CSS + JavaScript, інтерфейси, кнопки, форми.</td>
+                            </tr>
+                            <tr>
+                                <td>Back-end (серверна частина)</td>
+                                <td>Сервер обробляє запити, виконує бізнес-логіку, працює з базами даних, API-інтеграціями.</td>
+                            </tr>
+                            <tr>
+                                <td>База даних / Сховище даних</td>
+                                <td>Зберігання інформації: користувачі, записи, транзакції.</td>
+                            </tr>
+                            <tr>
+                                <td>Веб-сервер / аплікаційний сервер / API-шар</td>
+                                <td>Проміжна ланка: приймає HTTP-запити, розподіляє, викликає логіку, повертає відповіді.</td>
+                            </tr>
+                            <tr>
+                                <td>Архітектура (шари, рівні)</td>
+                                <td>Наприклад: презентаційний (UI), бізнес-логіки, доступу до даних.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Теми, які слід охопити під час навчання</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>Мови та технології для фронт-енду: HTML5, CSS3, JavaScript, фреймворки (React, Angular, Vue)</li>
+                        <li>Адаптивний дизайн (responsive) та UX/UI</li>
+                        <li>Мови/технології для бек-енду: Node.js, Python (Django, Flask), Java (Spring), PHP, etc.</li>
+                        <li>Робота з REST API, GraphQL</li>
+                        <li>Бази даних: реляційні (MySQL, PostgreSQL) і нереляційні (MongoDB)</li>
+                        <li>Архітектура вебзастосунку: 2-tier, 3-tier, N-tier, мікросервіси</li>
+                        <li>Безпека вебзастосунків: автентифікація, авторизація, захист від атак (XSS, SQL-ін'єкції)</li>
+                        <li>Тестування і деплой: CI/CD, хостинг, хмарні сервіси</li>
+                        <li>Практичні проекти: створення повнофункціонального вебзастосунку</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Архітектура вебзастосунків</h3>
+                <div class="topic-content">
+                    <p>Варто також знати, як "влаштовано" сучасний вебзастосунок:</p>
+                    <ul class="example-list">
+                        <li><strong>Presentation Layer (шар презентації)</strong> — інтерфейс, взаємодія з користувачем</li>
+                        <li><strong>Business Layer (логічний шар)</strong> — алгоритми, правила бізнесу, обробка даних</li>
+                        <li><strong>Data Access Layer (шар доступу до даних)</strong> — взаємодія з БД, кешування</li>
+                        <li><strong>Інфраструктурні компоненти</strong>: CDN, балансувальники навантаження, кеш-сервери</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎬</span> Відео: Веб-розробка для початківців</h3>
+                <div class="topic-content">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/BDLjp52CpS4" 
+                            title="Basics of video shooting | how to learn how to shoot cool videos on your phone?"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Це відео допоможе зрозуміти основні концепції веб-розробки та ознайомить з сучасними підходами до створення вебсайтів.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">✅</span> Чому це важливо для випускника</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">Вебзастосунки — одні з найпопулярніших продуктів в IT (інтернет-сервіси, магазини, платформи)</div>
+                        <div class="skill-item">Знання фронт- і бек-енду дає гнучкість і ширшу можливість працевлаштування</div>
+                        <div class="skill-item">Робота з архітектурою і базами даних готує до створення масштабованих систем, а не просто "скриптів"</div>
+                        <div class="skill-item">Практичні навички (Git, фреймворки, деплой) роблять студента готовим до роботи в команді</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові стати веб-розробником?</h2>
+                <p>Приєднуйтесь до нашого курсу та навчіться створювати сучасні вебсайти та вебдодатки. Опануйте найпопулярніші технології та станьте затребуваним спеціалістом!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="mobile" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мобільна розробка</h2>
+                <p>Створення застосунків для мобільних пристроїв на різних платформах</p>
+            </div>
+            
+            <!-- Додано відео -->
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎬</span> Відео: Вступ до мобільної розробки</h3>
+                <div class="topic-content">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/BDLjp52CpS4" 
+                            title="Basics of video shooting | how to learn how to shoot cool videos on your phone?"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Це відео допоможе зрозуміти основні концепції мобільної розробки та ознайомить з сучасними підходами до створення мобільних додатків.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔍</span> Що таке мобільна розробка</h3>
+                <div class="topic-content">
+                    <p>Мобільна розробка — процес створення програм (додатків) для мобільних пристроїв: смартфонів, планшетів, можливо — носимих пристроїв. Ці програми можуть бути рідними (native), крос-платформеними або гібридними.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основні технології та платформи</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li><strong>Для iOS:</strong> мова Swift або Objective-C</li>
+                        <li><strong>Для Android:</strong> мови Kotlin чи Java</li>
+                        <li><strong>Крос-платформені фреймворки:</strong> Flutter, React Native, Ionic</li>
+                        <li><strong>Гібридні підходи:</strong> наприклад, Apache Cordova дозволяє використовувати HTML/CSS/JS для мобільних додатків</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основні складові курсу</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>Ознайомлення з платформою — як працює мобільний пристрій, обмеження (пам'ять, батарея, сенсорний екран)</li>
+                        <li>Середовище розробки — IDE: Android Studio, Xcode; налаштування емуляторів, симуляторів</li>
+                        <li>Мови програмування — Kotlin/Java для Android, Swift/Objective-C для iOS; або мови/фреймворки для крос-платформених додатків</li>
+                        <li>Дизайн UI/UX — інтерфейс для сенсорних пристроїв, адаптивність, навігація, користувацький досвід</li>
+                        <li>Архітектура додатків — розділення логіки, даних і інтерфейсу; патерни (MVC, MVVM) і структури</li>
+                        <li>Бек-енд / Серверна частина — збереження даних, робота з API, інтеграції</li>
+                        <li>Тестування та оптимізація — різні пристрої, продуктивність, перевірка помилок</li>
+                        <li>Публікація та підтримка — випуск в App Store/Google Play, оновлення, аналітика</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎯</span> Навички, які набуває студент</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">Вміння створити мобільний додаток «з нуля» до робочого продукту</div>
+                        <div class="skill-item">Використання сучасних мов програмування мобільних платформ</div>
+                        <div class="skill-item">Проєктування інтерфейсу під мобільні пристрої з урахуванням обмежень</div>
+                        <div class="skill-item">Працювати з бек-енд сервісами, API, даними</div>
+                        <div class="skill-item">Випускати додаток на магазини, розуміти правила, монетизацію</div>
+                        <div class="skill-item">Підтримка та оновлення додатків, адаптація до нових версій ОС</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">⚠️</span> Виклики у мобільній розробці</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>Велика фрагментація пристроїв: різні розміри екранів, версії ОС, характеристики</li>
+                        <li>Потрібна оптимізація продуктивності — батарея, пам'ять, швидкість</li>
+                        <li>Безпека, конфіденційність даних користувачів — особливо важливо для мобільних додатків</li>
+                        <li>Публікація та монетизація — вимоги магазинів додатків, маркетинг</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔮</span> Чому це важливо для сучасного ІТ-спеціаліста</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">Мобільні додатки — ключовий канал взаємодії з користувачем: смартфони майже в кожного</div>
+                        <div class="skill-item">Знання мобільної розробки відкриває великі можливості працевлаштування (Android, iOS, крос-платформи)</div>
+                        <div class="skill-item">Можливість створити власний продукт чи стартап</div>
+                        <div class="skill-item">Вміння об'єднувати навички програмування, дизайну, архітектури — це високоцінна компетенція</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Додатковий контент -->
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">📱</span> Популярні мобільні фреймворки</h3>
+                <div class="topic-content">
+                    <div class="cards">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-icon">⚛️</div>
+                                <h3>React Native</h3>
+                                <p>Фреймворк від Facebook для створення нативних мобільних додатків з використанням React та JavaScript</p>
+                                <ul class="example-list">
+                                    <li>Спільний код для iOS та Android</li>
+                                    <li>Гарна продуктивність</li>
+                                    <li>Велика спільнота</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-icon">🎯</div>
+                                <h3>Flutter</h3>
+                                <p>Фреймворк від Google для створення високоякісних крос-платформових додатків з використанням Dart</p>
+                                <ul class="example-list">
+                                    <li>Власний рендеринг</li>
+                                    <li>Гарна швидкість розробки</li>
+                                    <li>Багатий набір віджетів</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-icon">⚡</div>
+                                <h3>Xamarin</h3>
+                                <p>Фреймворк від Microsoft для розробки крос-платформових додатків з використанням C#</p>
+                                <ul class="example-list">
+                                    <li>Повний доступ до нативних API</li>
+                                    <li>Інтеграція з Visual Studio</li>
+                                    <li>Підтримка .NET</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🛠️</span> Інструменти розробника</h3>
+                <div class="topic-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Інструмент</th>
+                                <th>Призначення</th>
+                                <th>Платформа</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Android Studio</td>
+                                <td>Офіційне IDE для розробки під Android</td>
+                                <td>Android</td>
+                            </tr>
+                            <tr>
+                                <td>Xcode</td>
+                                <td>Інтегроване середовище розробки для macOS та iOS</td>
+                                <td>iOS</td>
+                            </tr>
+                            <tr>
+                                <td>Visual Studio Code</td>
+                                <td>Універсальний редактор коду для крос-платформових проєктів</td>
+                                <td>Всі платформи</td>
+                            </tr>
+                            <tr>
+                                <td>React Native CLI</td>
+                                <td>Інструмент командного рядка для React Native</td>
+                                <td>Крос-платформовий</td>
+                            </tr>
+                            <tr>
+                                <td>Flutter SDK</td>
+                                <td>Комплект розробника для Flutter</td>
+                                <td>Крос-платформовий</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">📊</span> Етапи розробки мобільного додатку</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h4>1. Планування та дослідження</h4>
+                            <p>Визначення цілей додатку, аналіз ринку, дослідження конкурентів, визначення цільової аудиторії</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>2. Дизайн та прототипування</h4>
+                            <p>Створення UX/UI дизайну, розробка інтерфейсу користувача, створення прототипів</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>3. Розробка фронтенду</h4>
+                            <p>Реалізація інтерфейсу користувача, анімації, взаємодії з користувачем</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>4. Розробка бекенду</h4>
+                            <p>Створення серверної частини, API, робота з базами даних</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>5. Тестування</h4>
+                            <p>Функціональне тестування, тестування продуктивності, безпеки, юзабіліті</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>6. Публікація</h4>
+                            <p>Подання до App Store/Google Play, проходження модерації</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>7. Підтримка та оновлення</h4>
+                            <p>Моніторинг, виправлення помилок, додавання нового функціоналу</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">💼</span> Кар'єрні можливості</h3>
+                <div class="topic-content">
+                    <div class="cards">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3>Android Developer</h3>
+                                <p>Розробка додатків для платформи Android з використанням Kotlin/Java</p>
+                                <ul class="example-list">
+                                    <li>Середня зарплата: $70,000 - $120,000</li>
+                                    <li>Популярність: Дуже висока</li>
+                                    <li>Перспективи: Стабільний попит</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content">
+                                <h3>iOS Developer</h3>
+                                <p>Розробка додатків для екосистеми Apple з використанням Swift/Objective-C</p>
+                                <ul class="example-list">
+                                    <li>Середня зарплата: $80,000 - $130,000</li>
+                                    <li>Популярність: Висока</li>
+                                    <li>Перспективи: Зростаючий попит</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content">
+                                <h3>Cross-Platform Developer</h3>
+                                <p>Розробка універсальних додатків з використанням React Native, Flutter тощо</p>
+                                <ul class="example-list">
+                                    <li>Середня зарплата: $75,000 - $125,000</li>
+                                    <li>Популярність: Швидко зростає</li>
+                                    <li>Перспективи: Дуже перспективний напрям</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">📚</span> Корисні ресурси для навчання</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li><strong>Офіційна документація Android:</strong> developer.android.com</li>
+                        <li><strong>Офіційна документація Apple:</strong> developer.apple.com</li>
+                        <li><strong>React Native документація:</strong> reactnative.dev</li>
+                        <li><strong>Flutter документація:</strong> flutter.dev</li>
+                        <li><strong>Курси на Udemy:</strong> "The Complete Android Developer Course", "iOS & Swift - The Complete iOS App Development Bootcamp"</li>
+                        <li><strong>YouTube канали:</strong> "Android Developers", "Apple Developer", "Flutter"</li>
+                        <li><strong>Книги:</strong> "Android Programming: The Big Nerd Ranch Guide", "Swift Programming: The Big Nerd Ranch Guide"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🚀</span> Практичні поради для початківців</h3>
+                <div class="topic-content">
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h4>1. Почніть з основ</h4>
+                            <p>Вивчіть фундаментальні концепції програмування перед тим, як переходити до мобільної розробки</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>2. Оберіть одну платформу</h4>
+                            <p>Сконцентруйтесь на одній платформі (Android або iOS) для початку, потім розширюйте знання</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>3. Створюйте реальні проєкти</h4>
+                            <p>Практика - найкращий спосіб навчитися. Створюйте невеликі додатки для портфоліо</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>4. Вивчайте UI/UX принципи</h4>
+                            <p>Хороший дизайн - ключ до успішного додатку. Вивчайте принципи користувацького досвіду</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>5. Приєднуйтесь до спільноти</h4>
+                            <p>Беріть участь у форумах, групах, відвідуйте мітапи та конференції</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>6. Не бійтеся помилок</h4>
+                            <p>Кожна помилка - це можливість навчитися чомусь новому. Дебаггінг - важлива навичка</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові стати мобільним розробником?</h2>
+                <p>Приєднуйтесь до нашого курсу та навчіться створювати сучасні мобільні додатки для iOS та Android. Опануйте одну з найперспективніших галузей програмування!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="engineering" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Інженерія програмного забезпечення</h2>
+                <p>Повний життєвий цикл розробки ПЗ: від ідеї до готового продукту</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Що таке програмне забезпечення</h3>
+                <div class="topic-content">
+                    <p>Програмне забезпечення (ПЗ) — це набір програм, команд і даних, які змушують комп'ютер або інший пристрій виконувати певні дії. Іншими словами, це "мозок" комп'ютера, який керує його роботою. Без програмного забезпечення будь-яке «залізо» (монітор, процесор, клавіатура) — просто набір деталей, які не здатні робити нічого самостійно.</p>
+                    
+                    <p>ПЗ створюється програмістами за допомогою мов програмування, таких як Python, Java, C++, JavaScript тощо. Кожна програма складається з інструкцій, які комп'ютер виконує крок за кроком.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Основна роль програмного забезпечення</h3>
+                <div class="topic-content">
+                    <p>Основна роль ПЗ полягає в тому, щоб забезпечити взаємодію людини з комп'ютером і надати можливість виконувати різноманітні завдання — від роботи з документами до створення ігор, сайтів чи штучного інтелекту.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Види програмного забезпечення</h3>
+                <div class="topic-content">
+                    <p>Програмне забезпечення поділяється на кілька основних типів.</p>
+                    
+                    <h4>1. Системне програмне забезпечення</h4>
+                    <p>Воно відповідає за роботу всього комп'ютера. Це операційні системи (Windows, macOS, Linux, Android), які запускаються першими після вмикання комп'ютера. Вони керують усіма процесами: розподіляють пам'ять, дозволяють програмам взаємодіяти з обладнанням, забезпечують збереження файлів і захист системи. Також до системного ПЗ належать драйвери, які дозволяють пристроям, наприклад принтерам чи відеокартам, правильно працювати з комп'ютером.</p>
+                    
+                    <h4>2. Прикладне програмне забезпечення</h4>
+                    <p>Це програми, якими користується звичайний користувач для виконання конкретних завдань. Наприклад, Microsoft Word для створення документів, браузер Google Chrome для перегляду сайтів, Telegram для спілкування чи Photoshop для редагування зображень. Такі програми створюються для зручності людини та виконують чітко визначені функції.</p>
+                    
+                    <h4>3. Інструментальне програмне забезпечення</h4>
+                    <p>Це програми, які допомагають розробникам створювати нові програми. Наприклад, середовища програмування (IDE) — Visual Studio, PyCharm, Android Studio, Eclipse. Вони містять зручні інструменти для написання, перевірки та запуску коду.</p>
+                    
+                    <h4>4. Вбудоване програмне забезпечення</h4>
+                    <p>Це ПЗ, яке знаходиться в різних пристроях і техніці. Наприклад, у телевізорах, мікрохвильових печах, автомобілях чи "розумних" годинниках. Таке програмне забезпечення керує роботою приладу й часто приховане від користувача.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🎬</span> Відео: Інженерія ПЗ</h3>
+                <div class="topic-content">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/tNebe1k0qZE" 
+                            title="Об'єктно орієнтоване програмування за 5 хвилин | Просте пояснення для початківців | ООП"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Це відео допоможе зрозуміти основні концепції інженерії програмного забезпечення.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Студенти навчаються:</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li>аналізувати вимоги користувачів;</li>
+                        <li>проєктувати архітектуру програми;</li>
+                        <li>писати технічну документацію;</li>
+                        <li>використовувати системи контролю версій (Git, GitHub);</li>
+                        <li>тестувати, налагоджувати та вдосконалювати код.</li>
+                    </ul>
+                    
+                    <h3>Курси:</h3>
+                    <ul class="example-list">
+                        <li>Інженерія програмного забезпечення</li>
+                        <li>Управління ІТ-проєктами</li>
+                        <li>Тестування програмного забезпечення</li>
+                    </ul>
+                    
+                    <h3>Командна робота та практичні проєкти</h3>
+                    <p>Починаючи з 2–3 курсу, студенти:</p>
+                    <ul class="example-list">
+                        <li>працюють над командними проєктами, де створюють реальні програми;</li>
+                        <li>беруть участь у хакатонах, олімпіадах із програмування;</li>
+                        <li>проходять стажування у місцевих IT-компаніях (EPAM, Delphi, Playtika, SoftServe, Astound тощо).</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові стати інженером ПЗ?</h2>
+                <p>Приєднуйтесь до нашого курсу та навчіться керувати повним життєвим циклом розробки програмного забезпечення. Опануйте методики створення якісних та надійних програмних продуктів!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мови програмування</h2>
+                <p>Різні мови програмування для різних цілей та рівнів підготовки</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Що таке мова програмування</h3>
+                <div class="topic-content">
+                    <p>Мова програмування — формальна система запису інструкцій, яка дозволяє людині описати алгоритми, що потім виконає комп'ютер чи інша машина. Це засіб комунікації між програмістом і машиною (або між людьми через програму). Мови відрізняються синтаксисом, семантикою, рівнем абстракції, парадигмою (імперативна, декларативна, функціональна, об'єктно-орієнтована тощо).</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Категорії мов програмування</h3>
+                <div class="topic-content">
+                    <p>Ось типові класифікації:</p>
+                    <ul class="example-list">
+                        <li><strong>За рівнем абстракції:</strong> низькорівневі (наприклад, асемблер), високорівневі (наприклад, Python, Java)</li>
+                        <li><strong>За парадигмою:</strong> імперативні (наприклад, C), об'єктно-орієнтовані (наприклад, Java, C++), функціональні (наприклад, Haskell, Scala), скриптові/інтерпретовані (наприклад, JavaScript, Python)</li>
+                        <li><strong>За призначенням:</strong> системні (C, C++), веб (JavaScript, PHP), мобільні (Kotlin, Swift), наукові/аналітичні (R, Julia), вбудовані/реального часу (Rust, Zig) тощо</li>
+                        <li><strong>За способом виконання:</strong> компільовані (C, C++), інтерпретовані (Python, JavaScript), гібридні (наприклад Java з байт-кодом) тощо</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Популярні мови програмування сьогодні</h3>
+                <div class="topic-content">
+                    <h4>Python</h4>
+                    <p>Сьогодні Python — одна з найпопулярніших мов.</p>
+                    <p><strong>Переваги:</strong> простий і зрозумілий синтаксис, велика екосистема бібліотек (особливо в аналітиці, машинному навчанні), добре підходить для навчання.</p>
+                    <p><strong>Застосування:</strong> веб-розробка (Django, Flask), скрипти/автоматизація, аналіз даних, AI/ML, наукові обчислення.</p>
+                    <p><strong>Мінуси:</strong> не завжди найкраща продуктивність для задач, де критично швидке виконання, контролю ресурсів.</p>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/M9kT_xt5xjo?list=PLH1-5V9At2d_ioe0WSqMeE6n5bRt5pPpg" 
+                            title="Уроки Python з нуля | #1 - Типи даних та арифметичні операції"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <h4>JavaScript</h4>
+                    <p>Ключова мова для веб-розробки (особливо фронт-енд).</p>
+                    <p><strong>Переваги:</strong> виконання прямо в браузері, величезний стек фреймворків (React, Angular, Vue), також застосовується на сервері (Node.js).</p>
+                    <p><strong>Застосування:</strong> інтерфейси веб-сайтів, інтерактивні додатки, серверна логіка, повноцінні веб-застосунки.</p>
+                    <p><strong>Мінуси:</strong> через історичний розвиток мови можуть бути нюанси з продуктивністю, асинхронністю; велика конкуренція на ринку.</p>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/-bgkk6EqntI?list=PL7vq4D0vOpQbW4oply2GMQjVeYHNi05-I" 
+                            title="Уроки Java з нуля / #4 –  Змінні в Джава. Типи даних"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <h4>Java</h4>
+                    <p>Одна з класичних мов для корпоративної розробки, також була/є основною для Android.</p>
+                    <p><strong>Переваги:</strong> стабільна, об'єктно-орієнтована, велика екосистема, хороша підтримка великих систем.</p>
+                    <p><strong>Застосування:</strong> серверна розробка, веб-сервіси, Android-додатки, корпоративні рішення.</p>
+                    <p><strong>Мінуси:</strong> може бути більш громіздкою, ніж "легкі" мови; конкуренція з сучаснішими мовами.</p>
+                    
+                    <h4>C++</h4>
+                    <p>Мова з високою продуктивністю, використовується там, де важлива швидкість і контроль ресурсів.</p>
+                    <p><strong>Переваги:</strong> потужність, контроль, хороша для ігор, системного ПЗ, реального часу.</p>
+                    <p><strong>Застосування:</strong> ігрові рушії, драйвери, системне програмування, високопродуктивні обчислення.</p>
+                    <p><strong>Мінуси:</strong> складніша в освоєнні, вимагає більшого контролю пам'яті та ресурсів.</p>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/5l9nxwh5Wiw?list=PLDyJYA6aTY1llzwya3FrWX4tmo-hm491p" 
+                            title="Изучение C++ для начинающих / #1 – Введение в язык C++ с нуля"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <h4>Go (або Golang)</h4>
+                    <p>Відносно новіша мова, що швидко набирає популярність, особливо для хмарних сервісів та мікросервісів.</p>
+                    <p><strong>Переваги:</strong> проста синтакса, хороша продуктивність, вбудована підтримка паралелізму (горутини), створена Google.</p>
+                    <p><strong>Застосування:</strong> серверні сервіси, мікросервіси, інфраструктура, хмарні рішення.</p>
+                    <p><strong>Мінуси:</strong> менша екосистема ніж у "гігантів" як Python/Java; деякі функції "вищого рівня" обмежені.</p>
+                    
+                    <h4>Rust</h4>
+                    <p>Мова, що здобуває популярність завдяки фокусу на безпечній пам'яті та сучасному дизайну.</p>
+                    <p><strong>Переваги:</strong> висока продуктивність + безпечне управління пам'яттю без "сміттєзбірника", сучасні парадигми.</p>
+                    <p><strong>Застосування:</strong> системне програмування, вбудовані системи, програми з високими вимогами до безпеки та продуктивності.</p>
+                    <p><strong>Мінуси:</strong> крутіша крива навчання; менш "масова" ніж мови для веб/дивжів.</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Інші значущі мови</h3>
+                <div class="topic-content">
+                    <ul class="example-list">
+                        <li><strong>Kotlin</strong> — сучасна мова для Android-розробки, сумісна з Java</li>
+                        <li><strong>Swift</strong> — мова для iOS/macOS додатків</li>
+                        <li><strong>Julia</strong> — мова для наукових/математичних обчислень</li>
+                        <li><strong>Zig</strong> — новіша системна мова, альтернативна C/C++</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Як вибрати мову програмування</h3>
+                <div class="topic-content">
+                    <p>Коли обираєш, важливо враховувати такі критерії:</p>
+                    <ul class="example-list">
+                        <li><strong>Задача / галузь:</strong> чи це веб, чи мобайл, чи системи, чи дані</li>
+                        <li><strong>Популярність / екосистема:</strong> чи багато бібліотек, спільнота, вакансій</li>
+                        <li><strong>Продуктивність / ресурси:</strong> чи важлива швидкість, контроль пам'яті</li>
+                        <li><strong>Легкість у навчанні:</strong> для початку підійдуть мови із простішим синтаксисом (наприклад, Python)</li>
+                        <li><strong>Масштабованість та підтримка:</strong> наскільки добре мова справляється з великими проєктами</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔹</span> Мови програмування, які вивчають у ВНТУ</h3>
+                <div class="topic-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Рівень</th>
+                                <th>Основні мови</th>
+                                <th>Де застосовуються</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Початковий</td>
+                                <td>C, Python</td>
+                                <td>Алгоритмічне мислення, основи програмування</td>
+                            </tr>
+                            <tr>
+                                <td>Середній</td>
+                                <td>C++, Java</td>
+                                <td>ООП, десктопні застосунки</td>
+                            </tr>
+                            <tr>
+                                <td>Просунутий</td>
+                                <td>JavaScript, TypeScript, C#, PHP, Kotlin</td>
+                                <td>Web і мобільна розробка</td>
+                            </tr>
+                            <tr>
+                                <td>Спеціальний</td>
+                                <td>SQL, R, MATLAB</td>
+                                <td>Обробка даних, наукові обчислення</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Готові опанувати мови програмування?</h2>
+                <p>Приєднуйтесь до наших курсів та навчіться програмувати на найпопулярніших мовах. Обирайте напрям, який вас цікавить, та станьте затребуваним спеціалістом на ринку праці!</p>
+                <a href="#" class="btn">Записатися на курс</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="developer" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Розробник</h2>
+                <p>Інформація про автора та службу підтримки</p>
+            </div>
+            
+            <div class="developer-info">
+                <h1 class="developer-name">Поліщук Ілля</h1>
+                <p class="developer-title">Розробник та автор навчальних матеріалів</p>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">📞</span> Служба підтримки</h3>
+                <div class="topic-content">
+                    <p>Якщо у вас виникли питання щодо навчальних матеріалів, курсів або технічні проблеми з сайтом, звертайтеся до нашої служби підтримки:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <h3>Київстар</h3>
+                            <p>066 818 72 78</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Лайфсел</h3>
+                            <p>063 668 79 42</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Водафон</h3>
+                            <p>096 079 44 75</p>
+                        </div>
+                    </div>
+                    
+                    <p>Графік роботи служби підтримки: Пн-Пт з 9:00 до 18:00, Сб з 10:00 до 15:00</p>
+                </div>
+            </div>
+            
+            <div class="topic-section">
+                <h3 class="topic-title"><span class="topic-icon">🔗</span> Корисні ресурси</h3>
+                <div class="topic-content">
+                    <p>Рекомендовані джерела для поглибленого вивчення програмування:</p>
+                    
+                    <div class="resources-list">
+                        <div class="resource-card">
+                            <h3>Програмування на Вікіпедії</h3>
+                            <p>Детальна інформація про історію та концепції програмування</p>
+                            <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" class="external-link" target="_blank">Перейти до ресурсу</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3>TechTarget: ООП</h3>
+                            <p>Детальний огляд об'єктно-орієнтованого програмування англійською мовою</p>
+                            <a href="https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP?utm_source" class="external-link" target="_blank">Перейти до ресурсу</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3>MDN Web Docs: ООП</h3>
+                            <p>Офіційна документація Mozilla щодо об'єктно-орієнтованого програмування в JavaScript</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Object-oriented_programming?utm_source" class="external-link" target="_blank">Перейти до ресурсу</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Маєте питання?</h2>
+                <p>Не соромтеся звертатися до нашої служби підтримки за будь-якими питаннями щодо навчання програмуванню. Ми завжди раді допомогти!</p>
+                <a href="#" class="btn">Зв'язатися з підтримкою</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Програмування & ПЗ</div>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('home')">Головна</a></li>
+                    <li><a href="#" onclick="showPage('basics')">Основи</a></li>
+                    <li><a href="#" onclick="showPage('oop')">ООП</a></li>
+                    <li><a href="#" onclick="showPage('web')">Веб-розробка</a></li>
+                    <li><a href="#" onclick="showPage('mobile')">Мобільна розробка</a></li>
+                    <li><a href="#" onclick="showPage('engineering')">Інженерія ПЗ</a></li>
+                    <li><a href="#" onclick="showPage('languages')">Мови програмування</a></li>
+                    <li><a href="#" onclick="showPage('developer')">Розробник</a></li>
+                </ul>
+                <div class="copyright">
+                    &copy; 2023 Програмування та розробка програмного забезпечення. Всі права захищені.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            
+            // Оновити активний стан в навігації
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.nav-links a[onclick="showPage('${pageId}')"]`).classList.add('active');
+            
+            window.scrollTo(0, 0);
+            return false;
+        }
+
+        // Функція для обробки помилок відео
+        function handleVideoError(event) {
+            const videoContainer = event.target.closest('.video-container');
+            if (videoContainer) {
+                const iframe = videoContainer.querySelector('iframe');
+                const videoUrl = iframe.src;
+                
+                // Створюємо запасний контент
+                const fallback = document.createElement('div');
+                fallback.className = 'video-fallback';
+                fallback.innerHTML = `
+                    <div class="video-fallback-icon">📹</div>
+                    <h3>Відео тимчасово недоступне</h3>
+                    <p>Ми працюємо над вирішенням цієї проблеми. Ви можете переглянути це відео безпосередньо на YouTube.</p>
+                    <a href="${videoUrl}" target="_blank" class="btn">Перейти до відео на YouTube</a>
+                `;
+                
+                // Замінюємо iframe запасним контентом
+                videoContainer.innerHTML = '';
+                videoContainer.appendChild(fallback);
+            }
+        }
+
+        // Додаємо обробники подій для всіх відео
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoIframes = document.querySelectorAll('.video-container iframe');
+            videoIframes.forEach(iframe => {
+                iframe.addEventListener('error', handleVideoError);
+            });
+        });
+    </script>
+</body>
+</html>
